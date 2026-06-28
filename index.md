@@ -26,12 +26,15 @@ Lets now look at the process regarding **Raspberry Pi Imager** to flash it.
 
 1. You first have to select your Raspberry Pi Model.
 
-![[pi-selection.png]]
+![Pi selection](images/pi-selection.png)
 
 2. Then you have to choose the Operating System that you want to flash. Now if you have something like the Model 2b and you only want to setup PiHole, I would recommend you ignore anything that has a desktop environment. I have tried it and the Raspberry Pi was getting super hot and I am not even going to consider talking about performance. If you have a better model that has the capacity of a desktop environment then you can go for it but for the purpose of this tutorial we will stick with n**o desktop environment**. Therefore I recommend going to the **other** section as shown below
-![[pi-os.png]]   
+
+![Pi OS selection](images/pi-os.png)
+
 Then choose **Raspberry Pi OS Lite (32-bit)**
-![[pi-os1.png]]
+
+![Pi OS selection](images/pi-os1.png)
 
 3. After that you should see the listed SD Reader or the media that you will use to flash the OS to. Select it and press **"Next"**.
 4. Then you go through the **customization phase** in which you set things like **username (remember it), password** and you configure **SSH**. When you come across **SSH Authentication**, keep it at **"Use password authentication"**. **Raspberry Pi Connect** is not needed.
@@ -101,15 +104,17 @@ Once you run the command, sit back, relax, **WATCH THE LOGS** in case something 
 Once it finishes installing there will be a screen inside the terminal that will tell you some important info like so:
 
 ***Example image***
-![[Pasted image 20260628181517.png]]
+![Installation success](images/installation.png)
 
 There is a **URL** that is generated and a **password**.
 The URL generated is obviously the Raspberry Pi's IP address followed by `/admin`. By typing the URL given to you on your browser, you will see a Web Interface that looks like this:
 
+![PiHole Web Interface](images/web-interface.png)
 ![[web-interface.png]]
 
 Use the **password that was generated** and type it or paste it into the field and **Voilà** you are in! The dashboard should look something like this:
 
+![PiHole Dashboard](images/dashboard.png)
 ![[dashboard.png]]
 
 At this point you have ultimately laid the foundation and have your ad-blocker ready. Now that does not do anything on its own obviously we have to hook some devices up and let it do it's job and filter stuff for us. So lets see how it is done in the **next section**.
