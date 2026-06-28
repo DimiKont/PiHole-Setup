@@ -103,7 +103,6 @@ curl -sSL https://install.pi-hole.net | bash
 Once you run the command, sit back, relax, **WATCH THE LOGS** in case something does not go as planned, and wait for it to finish installing.
 Once it finishes installing there will be a screen inside the terminal that will tell you some important info like so:
 
-***Example image***
 ![Installation success](images/installation.png)
 
 There is a **URL** that is generated and a **password**.
