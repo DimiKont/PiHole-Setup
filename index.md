@@ -216,4 +216,4 @@ When you connect to a device through SSH and you exchange the ED25519 key/finger
 
 ![Network Layout](images/Network-Layout.png)
 
-[Continue where you left off](#loading--accessing-the-os)
+In case you came from that other link you can [continue where you left off](#loading--accessing-the-os)
