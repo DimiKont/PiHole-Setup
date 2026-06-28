@@ -108,12 +108,10 @@ There is a **URL** that is generated and a **password**.
 The URL generated is obviously the Raspberry Pi's IP address followed by `/admin`. By typing the URL given to you on your browser, you will see a Web Interface that looks like this:
 
 ![PiHole Web Interface](images/web-interface.png)
-![[web-interface.png]]
 
 Use the **password that was generated** and type it or paste it into the field and **Voilà** you are in! The dashboard should look something like this:
 
 ![PiHole Dashboard](images/dashboard.png)
-![[dashboard.png]]
 
 At this point you have ultimately laid the foundation and have your ad-blocker ready. Now that does not do anything on its own obviously we have to hook some devices up and let it do it's job and filter stuff for us. So lets see how it is done in the **next section**.
 
