@@ -20,8 +20,5 @@ PiHole is a software that sits on top of a network and basically filters ads. It
 
 Lets now look at the process regarding **Raspberry Pi Imager** to flash it.
 
-
-
-
 ### Extra
 When you connect to a device through SSH and you exchange the ED25519 key/fingerprint, it saves it to `~/.ssh/known_hosts`. If for some reason (definitely did not forgot my old password) you have to reinstall the whole operating system and try to connect to it provided that the IP stays the same, then the ssh will block you thinking that something malicious will happen. You have to edit `~/.ssh/known_hosts` and delete the line that contains the hostname and the IP pair. Then SSH to it and get the new fingerprint. 
