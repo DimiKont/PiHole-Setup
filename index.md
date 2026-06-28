@@ -65,8 +65,7 @@ ssh username@ip-address
 
 If the **ssh command** is executed correctly, you will be prompted to accept that connection and the ED25519 key exchange thingy by typing **"yes"**. After typing yes you will be inside the Raspberry Pi's terminal.
 
->**Note:**
->If for some reason you have messed up something (definitely not what happened to me) and you get a message like this when attempting to connect:
+If for some reason you have messed up something (definitely not what happened to me) and you get a message like this when attempting to connect:
 ```bash
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
