@@ -82,7 +82,7 @@ RSA host key for [...] has changed and you have requested strict checking.
 Host key verification failed.
 ```
 
-then you should look at [[#Known hosts problem|this section]] that I made because it *(most certainly)* did not happen to me :).
+then you should look at [[#Known hosts problem]] that I made because it *(most certainly)* did not happen to me).
 
 ### PiHole Tool Installation
 Now in order to install it I personally followed a YouTube tutorial. That is probably why it was so much more complicated than it is. The video in question was [this](https://www.youtube.com/watch?v=Z_sVjxu9LjE). It is a very good video and it gives you a very nice insight as to how you can do it in a different way using **Docker**. To be honest, for the average foe this is a bit complicated and things can get messy quite easily depending on the whole network setup.
