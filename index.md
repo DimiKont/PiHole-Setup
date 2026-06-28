@@ -1,3 +1,4 @@
+
 ---
 layout: default
 title: Isolated Pi-hole Lab Guide
@@ -218,6 +219,8 @@ When you connect to a device through SSH and you exchange the ED25519 key/finger
 
 ### Network Layout
 
+![Network Layout](images/Network-Layout.png)
 
 
-***Continue where you left off***
+
+([[#Loading & Accessing the OS|Continue where you left off]])
