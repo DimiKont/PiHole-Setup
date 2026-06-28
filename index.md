@@ -8,8 +8,6 @@ A guide on how to setup PiHole at home and host it on your Raspberry Pi. It also
 
 > ⚠️ **Disclaimer:** Breaking stuff is an essential part of learning! The steps outlined in this guide worked perfectly for my specific network setup, but I am not responsible for any accidental router resets, angry household members, or ghost IP configurations that may occur on your end. Proceed at your own risk!
 
-{:toc #sidebar-toc}
-
 ## What is PiHole ?
 PiHole is a software that sits on top of a network and basically filters ads. It is a **network-wide ad blocker**. It uses **lists of domains** that download or are related with ads so it can block them. There are some default lists but you can also add custom lists containing other domains.
 
