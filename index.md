@@ -47,7 +47,7 @@ The OS that we have selected in this tutorial has no desktop environment. In ord
 You can find the IP address of the device by going into your **Router's gateway** where all the devices are listed. Keep the IP we will need it throughout almost the whole process.
 
 >**Note:**
->I personally use a **Mesh network** which sits on top of my router network. If you want to get a better understanding of the layout and more technical stuff, check [[#Network Layout]].
+>I personally use a **Mesh network** which sits on top of my router network. If you want to get a better understanding of the layout and more technical stuff, check out the [network layout](#network-layout).
 
 If you use Mesh devices or you have some sort of network that sits on top of your default router network, then you should be able to see it from the corresponding app that monitors the network. For example, if you use **Deco Mesh Devices**, Deco has an app where you see every connected device and you can see their IPs, manage them etc. The **main goal** is to find the IP of your Raspberry Pi.
 After you find the IP of your device you can connect to it via SSH. In order to be sure that it is discoverable from your laptop, I like to do a nice `ping` first to see if I get a response. You can use the command `ping <your-ip-here>` and if you see a response like this:
