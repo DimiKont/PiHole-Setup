@@ -46,7 +46,7 @@ Once the OS is written you can insert the media into the Raspberry Pi itself. On
 The OS that we have selected in this tutorial has no desktop environment. In order to interact with the OS there are couple of ways. The most obvious one is hooking it up to a keyboard and a monitor. The other is what I did. I found the IP address of my Raspberry Pi and I just used SSH to log in to it. It is probably way easier than trying to hook it up to a monitor and doing all that work just for a terminal but it depends on the case.
 You can find the IP address of the device by going into your **Router's gateway** where all the devices are listed. Keep the IP we will need it throughout almost the whole process.
 
->[!note]
+>**Note**
 >I personally use a **Mesh network** which sits on top of my router network. If you want to get a better understanding of the layout and more technical stuff, check [[#Network Layout]].
 
 If you use Mesh devices or you have some sort of network that sits on top of your default router network, then you should be able to see it from the corresponding app that monitors the network. For example, if you use **Deco Mesh Devices**, Deco has an app where you see every connected device and you can see their IPs, manage them etc. The **main goal** is to find the IP of your Raspberry Pi.
@@ -65,7 +65,7 @@ ssh username@ip-address
 
 If the **ssh command** is executed correctly, you will be prompted to accept that connection and the ED25519 key exchange thingy by typing **"yes"**. After typing yes you will be inside the Raspberry Pi's terminal.
 
->[!note]
+>**Note**
 >If for some reason you have messed up something (definitely not what happened to me) and you get a message like this when attempting to connect:
 ```bash
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -93,7 +93,7 @@ A very much more reliable way of doing it is by executing this command found on 
 curl -sSL https://install.pi-hole.net | bash
 ```
 
-> [!note]
+> **Note**
 > Initially it might fail because it needs `root` privileges. If it happens run this:
 > ```bash
 > curl -sSL https://install.pi-hole.net | sudo bash
@@ -189,7 +189,7 @@ If your device isn't routing traffic to the Pi-hole, run these commands to force
 If you don't want to seem like one of those hackers wearing a hoody and sitting in front of the black terminal with the green text that has insane color contrast, you don't have a problem waiting a couple of seconds and moving a couple of muscles then you can just close the **WiFi** and turn it back on or if you are on **Ethernet just disconnect it and reconnect it**.
 Else if you want to do it while keeping your hands on your keyboard because it is apparently **super *TiMe eFfeCtIvE*** and can *save up to years of your life* **(not really)**, then you can use the commands below on **YOUR MACHINE** not the Raspberry Pi.
 
->[!note]
+>**Note**
 >Keep in mind that we are juggling between two terminal because one is for the Raspberry Pi and the other one is for your device
 
 #### 1. Linux (Restarting NetworkManager)
