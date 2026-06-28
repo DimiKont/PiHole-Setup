@@ -222,4 +222,4 @@ When you connect to a device through SSH and you exchange the ED25519 key/finger
 
 
 
-([[#Loading & Accessing the OS|Continue where you left off]])
+[[#Loading & Accessing the OS|Continue where you left off]]
