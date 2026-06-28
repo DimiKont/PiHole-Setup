@@ -1,4 +1,3 @@
-
 ---
 layout: default
 title: Isolated Pi-hole Lab Guide
