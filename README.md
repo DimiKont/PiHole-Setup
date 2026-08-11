@@ -8,6 +8,6 @@ A guide on how to setup PiHole at home and host it on your Raspberry Pi. It also
 
 ## Current Blocklists
 * https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
-* https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt
-* https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt
-* https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt
+* [https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.txt](https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/hosts/tif.txt)
+* [https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt](https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/hosts/tif.txt)
+* [https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt](https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/hosts/fake.txt)
