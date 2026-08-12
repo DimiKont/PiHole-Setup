@@ -9,18 +9,18 @@ A guide on how to setup PiHole at home and host it on your Raspberry Pi. It also
 > ⚠️ **Disclaimer:** Breaking stuff is an essential part of learning! The steps outlined in this guide worked perfectly for my specific network setup, but I am not responsible for any accidental router resets, angry household members, or ghost IP configurations that may occur on your end. Proceed at your own risk!
 
 ## What is PiHole ?
-PiHole is a software that sits on top of a network and basically filters ads. It is a **network-wide ad blocker**. It uses **lists of domains** that download or are related with ads so it can block them. There are some default lists but you can also add custom lists containing other domains.
+PiHole is a software that sits on top of a network and basically filters ads. It is a **network-wide ad blocker**. It uses **lists of domains** that download or are related with ads so it can block them. There are some default lists but you can also add custom lists containing other domains. These lists are called **blocklists**.
 
 ### How to get started
 
-* First you are going to need a **Raspberry Pi (obviously)**. Anything from as old as a Model 2b (which is what I have) up to a Model 5 will do. PiHole itself and the overall process is not heavy at all so even that 1GB of RAM that the Model 2b has is sufficient. 
-* You obviously need **connection** to the **internet** either via WiFi Antenna (Model 2b does not a WiFi module so you will need an antenna) of the good old reliable Ethernet.
-* In terms of power supply, a 20W phone charger should be enough to power it on, but if you want you can also use the old-fashioned DC power supply with the little circular cord thing (you know what I mean).
-* An **SD Card** to write the operating system to. There might be ways to do it with a live USB stick, but with the SD card you can just write it once, insert it in the slot and just leave it there ( that does not apply if you break the system multiple times like I did and need to literally reinstall it because it is irreversible :( )
+* First you are going to need a **Raspberry Pi (obviously)**. Anything from as old as a Model 2b (which is what I have) up to a Model 5 will do. PiHole itself and the overall process is not heavy at all so even that 1GB of RAM that the Model 2b has is more than sufficient. I have test over 5.000.000 domains and the CPU and Memory usage were sitting at very low levels.
+* You obviously need **connection** to the **internet** either via WiFi Antenna (Model 2b does not a WiFi module so you will need one) or the good old reliable Ethernet.
+* In terms of power supply, a 20W phone charger should be enough to power it on, but if you want you can also use the old-fashioned DC power supply with the little circular cord thing which the Pi probably supports (you know what I mean).
+* An **SD Card** to write the operating system to. There might be ways to do it with a live USB stick, but with the SD card you can just write it once, insert it in the slot and just leave it there (that does not apply if you break the system multiple times like I did and need to literally reinstall it because it is irreversible (sad))
 * If your laptop or computer that you use to flash the SD does not have a reader by itself, you will need an **SD Reader**.
-* **Raspberry Pi Imager software** to write the Raspberry Pi OS into the SD Card. You can download it [here](https://www.raspberrypi.com/software/)
+* **Raspberry Pi Imager software** to write the Raspberry Pi OS into the SD Card. You can download it via the official website [here](https://www.raspberrypi.com/software/)
 
-### Raspberry Pi Imager
+### Flashing the OS - Raspberry Pi Imager
 
 Lets now look at the process regarding **Raspberry Pi Imager** to flash it.
 
@@ -28,7 +28,7 @@ Lets now look at the process regarding **Raspberry Pi Imager** to flash it.
 
 ![Pi selection](images/pi-selection.png)
 
-2. Then you have to choose the Operating System that you want to flash. Now if you have something like the Model 2b and you only want to setup PiHole, I would recommend you ignore anything that has a desktop environment. I have tried it and the Raspberry Pi was getting super hot and I am not even going to consider talking about performance. If you have a better model that has the capacity of a desktop environment then you can go for it but for the purpose of this tutorial we will stick with n**o desktop environment**. Therefore I recommend going to the **other** section as shown below
+2. Then you have to choose the Operating System that you want to flash. Now if you have something like the Model 2b and you only want to setup PiHole, I would recommend you ignore anything that has a desktop environment. I have tried it and the Raspberry Pi was getting super hot and I am not even going to consider talking about performance. If you have a better model that has the capacity of a desktop environment then you can go for it but for the purpose of this tutorial we will stick with **no desktop environment**. Therefore I recommend going to the **other** section as shown below
 
 ![Pi OS selection](images/pi-os.png)
 
@@ -43,8 +43,8 @@ Then choose **Raspberry Pi OS Lite (32-bit)**
 ### Loading & Accessing the OS
 
 Once the OS is written you can insert the media into the Raspberry Pi itself. Once inserted, let it **boot up** for about **2-3 minutes**.
-The OS that we have selected in this tutorial has no desktop environment. In order to interact with the OS there are couple of ways. The most obvious one is hooking it up to a keyboard and a monitor. The other is what I did. I found the IP address of my Raspberry Pi and I just used SSH to log in to it. It is probably way easier than trying to hook it up to a monitor and doing all that work just for a terminal but it depends on the case.
-You can find the IP address of the device by going into your **Router's gateway** where all the devices are listed. Keep the IP we will need it throughout almost the whole process.
+The OS that we have selected in this tutorial has no desktop environment. In order to interact with the OS there are couple of ways. The most obvious one is hooking it up to a keyboard and a monitor. The other way is good old SSH. I found the IP address of my Raspberry Pi and I just used SSH to log in to it remotely. It is probably way easier than trying to hook it up to a monitor and doing all that work just for a terminal but it depends.
+There are many way to find a device's IP. One way is by going into your **Router's gateway** where all the devices are listed. Keep the IP we will need it throughout almost the whole process.
 
 >**Note:**
 >I personally use a **Mesh network** which sits on top of my router network. If you want to get a better understanding of the layout and more technical stuff, check out the [network layout](#network-layout).
@@ -82,10 +82,11 @@ RSA host key for [...] has changed and you have requested strict checking.
 Host key verification failed.
 ```
 
-then you should look at [this section](#known-hosts-problem) that I made because it *(most certainly)* did not happen to me).
+then you should look at [this section](#known-hosts-problem) that I made because it *(most certainly)* did not happen to me.
 
 ### PiHole Tool Installation
-Now in order to install it I personally followed a YouTube tutorial. That is probably why it was so much more complicated than it is. The video in question was [this](https://www.youtube.com/watch?v=Z_sVjxu9LjE). It is a very good video and it gives you a very nice insight as to how you can do it in a different way using **Docker**. To be honest, for the average foe this is a bit complicated and things can get messy quite easily depending on the whole network setup.
+After all the steps above are completed successfully then you inside your Pi.
+Now in order to install the tool I personally followed a YouTube tutorial. That is probably why it was so much more complicated than it is. The video in question was [this](https://www.youtube.com/watch?v=Z_sVjxu9LjE). It is a very good video and it gives you a very nice insight as to how you can do it in a different way using **Docker**. To be honest, for the average foe this is a bit complicated and things can get messy quite easily depending on the whole network setup. If you know your way around **Docker Containers** then you can probably follow and probably do not really need this guide ??
 A very much more reliable way of doing it is by executing this command found on the [official GitHub repository of PiHole](https://github.com/pi-hole/pi-hole/#one-step-automated-install:~:text=One%2DStep%20Automated%20Install)
 
 ```bash
@@ -115,12 +116,19 @@ Use the **password that was generated** and type it or paste it into the field a
 
 At this point you have ultimately laid the foundation and have your ad-blocker ready. Now that does not do anything on its own obviously we have to hook some devices up and let it do it's job and filter stuff for us. So lets see how it is done in the **next section**.
 
-### Bringing your Personal Devices into the loop (DNS Isolation)
+## Bringing your Personal Devices into the loop (DNS Isolation)
+
+> **Note:**
+> Keep in mind that this can vary a lot based on your setup. For the purpose of this guide, we will cover **local network setups** as well as **Tailscale**.
 
 Instead of forcing your **entire household** to use the Pi-hole through your router, you can 
-configure your personal devices to talk to it directly. This keeps your lab environment completely isolated to just your phone and laptop.
+configure your personal devices to talk to it directly. This can keep your lab environment completely isolated to selected devices.
 
 Now in order for your device to receive that filtered traffic, we have to set our Raspberry Pi that we just have set up to be our DNS Server. This is easily done by tweaking each device's DNS settings (laptop, phone etc), and setting your IP of the Raspberry as the DNS server. Now depending on the operating system the way that you make that change can differ. So lets see how it is done in each one.
+
+For the purpose of this guide we will show how to do DNS Isolation for **locally accessible networks** as well as networks using **Tailscale VPN**.
+
+### Setup for locally accessible networks
 
 #### 1. macOS (Wi-Fi or LAN/Ethernet)
 1. Open **System Settings** and look at the network sidebar:
@@ -172,6 +180,54 @@ Now in order for your device to receive that filtered traffic, we have to set ou
 
 > 🛑 **The Ultimate Safety Net:** If your device suddenly loses internet or a page refuses to load, don't panic. Just revisit this specific menu on that device and flip the DNS setting back to **Automatic (or DHCP)**. It will instantly rejoin the main unrestricted network.
 
+### Setup for Tailscale VPN networks
+
+Unlike the local network section above, Tailscale devices don't live on your home LAN, so you can't just point them at your Pi-hole's local IP (like `192.168.x.x`) and call it a day — that IP is meaningless once you're off your home Wi-Fi. Instead, Tailscale gives you a **tailnet-wide DNS setting** that you configure once in the admin console, and every device in your tailnet inherits it automatically. Much less clicking around per-device compared to the local setup.
+
+#### 1. Find your Pi-hole's Tailscale IP
+
+If you haven't already, install Tailscale on your Raspberry Pi:
+
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+```
+
+Once it's connected, grab its Tailscale IP (this will look like `100.x.x.x`, **not** your local `192.168.x.x` address):
+
+```bash
+tailscale ip -4
+```
+
+Keep this IP handy — it's what you'll use in the next step.
+
+#### 2. Add Pi-hole as a nameserver in the Tailscale admin console
+
+1. Head to the [Tailscale DNS admin page](https://login.tailscale.com/admin/dns).
+2. Under **Nameservers**, click **Add Nameserver** > **Custom**.
+3. Paste in your Pi-hole's **Tailscale IP** from step 1.
+4. Toggle **Override local DNS** if you want *every* device in your tailnet to be forced through Pi-hole exclusively. Leave it off if you'd rather this be a fallback alongside your normal DNS.
+5. Save.
+
+> **Note:**
+> This is a tailnet-wide setting — you don't need to touch DNS settings on each individual device like you did for the local network setup. As soon as a device connects to your tailnet, it picks up this nameserver automatically.
+
+#### 3. Make sure Pi-hole is actually listening on the Tailscale interface
+
+By default, Pi-hole might only respond to DNS queries coming from your local subnet, which will silently ignore anything coming in over `tailscale0`. To fix this:
+
+1. Open the Pi-hole admin dashboard and go to **Settings > DNS**.
+2. Scroll down to **Interface listening behavior**.
+3. Select **Listen on all interfaces** (the safest, simplest option for a single-user lab setup).
+4. Save.
+
+> 🛑 **Firewall gotcha:** If you've got `ufw` or another firewall running on the Pi, it may be silently dropping DNS traffic on the `tailscale0` interface even though Pi-hole itself is configured correctly. Allow it explicitly with:
+> ```bash
+> sudo ufw allow in on tailscale0 to any port 53
+> ```
+
+> 🛑 **The Ultimate Safety Net (Tailscale edition):** If something breaks and devices lose connectivity entirely, you can disable the override without touching any individual device — just go back to the [admin console](https://login.tailscale.com/admin/dns) and turn off **Override local DNS**, or remove the nameserver entirely. Every device in the tailnet reverts instantly.
+
 Now as almost literally anything when it comes to networks can break and not really work as expected or can get clogged up and confused, we need to force an update on the device because it might be stuck on the previous configuration of our network.
 
 ### Troubleshooting: Forcing Stuck Devices to Update
@@ -204,6 +260,18 @@ sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 #### 3. Windows (Flushing DNS via CLI)
 ```bash
 ipconfig /flushdns
+```
+
+### Troubleshooting: Tailscale-specific gotchas
+
+#### MagicDNS conflicts
+If you have **MagicDNS** enabled in your tailnet, it can sometimes fight with your custom nameserver for who resolves what. If devices seem to intermittently ignore Pi-hole, try temporarily disabling MagicDNS to confirm it's the culprit, then re-enable once you've adjusted your split-DNS rules.
+
+#### Devices not picking up the new DNS
+Tailscale usually pushes DNS changes near-instantly, but if a device seems stuck on its old resolver, restart the Tailscale connection on that device rather than fiddling with OS-level DNS settings:
+
+```bash
+sudo tailscale down && sudo tailscale up
 ```
 
 ### Actually seeing the devices
